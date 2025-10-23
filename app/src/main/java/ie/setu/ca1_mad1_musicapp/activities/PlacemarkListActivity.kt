@@ -1,6 +1,7 @@
 package ie.setu.ca1_mad1_musicapp.activities
 
 import android.app.Activity
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -61,7 +63,7 @@ class PlacemarkListActivity : AppCompatActivity() {
     }
 }
 
-class PlacemarkAdapter constructor(private var placemarks: List<PlacemarkModel>) :
+class PlacemarkAdapter constructor(private var placemarks: MutableList<PlacemarkModel> ) :
     RecyclerView.Adapter<PlacemarkAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -72,20 +74,32 @@ class PlacemarkAdapter constructor(private var placemarks: List<PlacemarkModel>)
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val placemark = placemarks[holder.adapterPosition]
-        holder.bind(placemark)
+        //Before this code below would not work with the delete function code, I used AI to help me create code that would function correctly.
+        holder.bind(placemarks[position], placemarks, this)
     }
 
     override fun getItemCount(): Int = placemarks.size
 
 
 
-    class MainHolder(private val binding : CardPlacemarkBinding) :
+    class MainHolder(
+        private val binding : CardPlacemarkBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(placemark: PlacemarkModel) {
+        fun bind(placemark: PlacemarkModel, placemarks: MutableList<PlacemarkModel>, adapter: PlacemarkAdapter) {
             binding.placemarkTitle.text = placemark.title
             binding.description.text = placemark.description
+
+            // I used AI to help understand and create this code below. For the this bit I used AI to help me create the delete functions that would work with the cardview button
+
+            binding.deletePlacemark.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    placemarks.removeAt(position)
+                    adapter.notifyItemRemoved(position)
+                    adapter.notifyItemRangeChanged(position,placemarks.size)
+                    (binding.root.context.applicationContext as MainApp).savePlacemarks()
+                }
+            }
         }
     }
 

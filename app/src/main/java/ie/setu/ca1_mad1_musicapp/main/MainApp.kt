@@ -16,12 +16,14 @@ class MainApp : Application() {
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
+        //loads the placemarks saved
         loadPlacemarks()
         i("Placemark started")
 
     }
 
     //I used AI to generate this code involving the JSON persistence
+    //All the code below is created with the help of AI
 
     fun savePlacemarks() {
         val jsonString = Gson().toJson(placemarks)

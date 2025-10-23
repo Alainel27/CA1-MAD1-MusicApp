@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import com.google.android.material.snackbar.Snackbar
 import ie.setu.ca1_mad1_musicapp.R
 import ie.setu.ca1_mad1_musicapp.databinding.ActivityPlacemarkBinding
@@ -42,7 +43,7 @@ class PlacemarkActivity : AppCompatActivity() {
             if (placemark.title.isNotEmpty()) {
                 app.placemarks.add(placemark.copy())
 
-                //persistence
+                //persistence so it saves, called from the MainApp
                 app.savePlacemarks()
 
                 i("add Button Pressed: ${placemark}")
@@ -59,6 +60,8 @@ class PlacemarkActivity : AppCompatActivity() {
         }
 
 
+
+
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_placemark, menu)
@@ -73,6 +76,10 @@ class PlacemarkActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
+
+
 
 
 

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:elevation="24dp">
+    android:elevation="24dp"
+    tools:context="ie.setu.ca1_mad1_musicapp.activities.PlacemarkActivity">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,6 +36,7 @@
             android:layout_below="@+id/description"
             android:padding="8dp"
             android:text="Edit"/>
+
 
         <Button
             android:id="@+id/deletePlacemark"
