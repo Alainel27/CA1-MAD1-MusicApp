@@ -17,31 +17,24 @@ class PlacemarkActivity : AppCompatActivity() {
     var placemark = PlacemarkModel()
     lateinit var app: MainApp
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        var edit = false
+
         binding = ActivityPlacemarkBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.toolbarAdd.title = title
         setSupportActionBar(binding.toolbarAdd)
 
-
         app = application as MainApp
+
+
         i("Placemark Activity started...")
-        binding.btnAdd.setOnClickListener() {
-            placemark.title = binding.placemarkTitle.text.toString()
-            placemark.description = binding.description.text.toString()
-            if (placemark.title.isNotEmpty()) {
-                app.placemarks.add(placemark.copy())
-                i("add Button Pressed: ${placemark}")
-                for (i in app.placemarks.indices)
-                { i("Placemark[$i]:${this.app.placemarks[i]}") }
-            }
-            else {
-                Snackbar.make(it,"Please Enter a title", Snackbar.LENGTH_LONG)
-                    .show()
-            }
-        }
 
         binding.btnAdd.setOnClickListener() {
             placemark.title = binding.placemarkTitle.text.toString()
@@ -76,6 +69,8 @@ class PlacemarkActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 
 }
 

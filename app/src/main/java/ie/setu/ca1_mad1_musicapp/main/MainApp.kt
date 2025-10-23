@@ -10,6 +10,7 @@ class MainApp : Application() {
 
     val placemarks = ArrayList<PlacemarkModel>()
 
+
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
