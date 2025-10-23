@@ -1,12 +1,18 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+
 }
 
 android {
     namespace = "ie.setu.ca1_mad1_musicapp"
     compileSdk {
         version = release(36)
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     defaultConfig {
@@ -43,7 +49,14 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    implementation(libs.timber)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation("com.google.code.gson:gson:2.13.2")
+
+
 }
