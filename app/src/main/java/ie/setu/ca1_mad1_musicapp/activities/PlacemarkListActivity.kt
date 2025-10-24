@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.SearchView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,6 +46,7 @@ class PlacemarkListActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.adapter = PlacemarkAdapter(app.placemarks)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -79,7 +81,6 @@ class PlacemarkAdapter constructor(private var placemarks: MutableList<Placemark
     }
 
     override fun getItemCount(): Int = placemarks.size
-
 
 
     class MainHolder(
