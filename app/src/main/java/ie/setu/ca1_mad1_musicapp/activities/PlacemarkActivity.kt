@@ -24,8 +24,6 @@ class PlacemarkActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var edit = false
-
         binding = ActivityPlacemarkBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -43,7 +41,7 @@ class PlacemarkActivity : AppCompatActivity() {
             if (placemark.title.isNotEmpty()) {
                 app.placemarks.add(placemark.copy())
 
-                //persistence so it saves, called from the MainApp
+                //persistence so it saves the inputted data, called from the MainApp savePlacemarks() function previously created
                 app.savePlacemarks()
 
                 i("add Button Pressed: ${placemark}")

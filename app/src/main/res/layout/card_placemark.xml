@@ -29,20 +29,13 @@
             android:layout_below="@id/placemarkTitle"
             tools:text="A Description" />
 
-        <Button
-            android:id="@+id/editPlacemark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/description"
-            android:padding="8dp"
-            android:text="Edit"/>
+
 
 
         <Button
             android:id="@+id/deletePlacemark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="100dp"
             android:layout_below="@id/description"
             android:padding="8dp"
             android:text="Delete" />

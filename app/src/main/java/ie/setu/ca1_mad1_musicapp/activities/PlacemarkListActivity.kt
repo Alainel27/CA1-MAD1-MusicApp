@@ -89,14 +89,26 @@ class PlacemarkAdapter constructor(private var placemarks: MutableList<Placemark
             binding.placemarkTitle.text = placemark.title
             binding.description.text = placemark.description
 
-            // I used AI to help understand and create this code below. For the this bit I used AI to help me create the delete functions that would work with the cardview button
+            // I used AI to help understand and create this code below.
+            //For the this bit I used AI to help me create the delete functions that would work with the cardview button
+            //I created the delete function in this class as the delete button is in the cardview xml
 
+            //This is the preliminary code where if the button is pressed it will execute the code below
             binding.deletePlacemark.setOnClickListener {
+                //This line gets the index position of the placemark in the RecyclerView list
+                //So if it is the first placemark the position = 0 and if it is the second placemark the position = 1
                 val position = adapterPosition
+                //This line checks if the position is valid before trying to delete it with the code below
                 if (position != RecyclerView.NO_POSITION) {
+                    //This line removes the placemark at the position
                     placemarks.removeAt(position)
+                    //This updates the list visually
                     adapter.notifyItemRemoved(position)
+                    //This line is optional but essentially it refreshes all the items in the list.
                     adapter.notifyItemRangeChanged(position,placemarks.size)
+                    //This line is is essential for persistence
+                    //It calls the function savePlacemarks() in MainApp that saves the list to the JSON
+                    //This makes the deletion permanent
                     (binding.root.context.applicationContext as MainApp).savePlacemarks()
                 }
             }
