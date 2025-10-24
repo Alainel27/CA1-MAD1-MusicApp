@@ -22,7 +22,7 @@ class MainApp : Application() {
 
     }
 
-    //I used AI to generate this code involving the JSON persistence
+    //I used AI to help create this code involving the JSON persistence for the two functions
     //All the code below is created with the help of AI
     //The json gets stored in the device apps storage
     //How to access to

@@ -1,7 +1,7 @@
 package ie.setu.ca1_mad1_musicapp.models
 
 
-data class PlacemarkModel(var id: Long = 0,
+data class PlacemarkModel(
                           var title: String = "",
                           var description: String = "")
 
