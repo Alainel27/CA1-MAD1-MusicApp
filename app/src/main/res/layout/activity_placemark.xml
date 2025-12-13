@@ -75,7 +75,7 @@
                     android:background="@color/colorAccent"
                     android:padding="8dp"
                     android:stateListAnimator="@null"
-                    android:text="@string/button_addPlacemark"
+                    android:text="Add Song"
                     android:textColor="@color/colorPrimary"
                     android:textSize="16sp" />
 

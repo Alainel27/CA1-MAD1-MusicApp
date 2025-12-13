@@ -30,8 +30,6 @@
             tools:text="A Description" />
 
 
-
-
         <Button
             android:id="@+id/deletePlacemark"
             android:layout_width="wrap_content"
