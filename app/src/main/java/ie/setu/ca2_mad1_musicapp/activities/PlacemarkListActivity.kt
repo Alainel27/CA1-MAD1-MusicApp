@@ -1,7 +1,6 @@
-package ie.setu.ca1_mad1_musicapp.activities
+package ie.setu.ca2_mad1_musicapp.activities
 
 import android.app.Activity
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,16 +8,14 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.SearchView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ie.setu.ca1_mad1_musicapp.R
-import ie.setu.ca1_mad1_musicapp.databinding.ActivityPlacemarkListBinding
-import ie.setu.ca1_mad1_musicapp.databinding.CardPlacemarkBinding
-import ie.setu.ca1_mad1_musicapp.main.MainApp
-import ie.setu.ca1_mad1_musicapp.models.PlacemarkModel
+import ie.setu.ca2_mad1_musicapp.R
+import ie.setu.ca2_mad1_musicapp.databinding.ActivityPlacemarkListBinding
+import ie.setu.ca2_mad1_musicapp.databinding.CardPlacemarkBinding
+import ie.setu.ca2_mad1_musicapp.main.MainApp
+import ie.setu.ca2_mad1_musicapp.models.PlacemarkModel
 class PlacemarkListActivity : AppCompatActivity() {
 
     lateinit var app: MainApp

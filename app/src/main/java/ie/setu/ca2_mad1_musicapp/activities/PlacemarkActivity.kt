@@ -1,16 +1,14 @@
-package ie.setu.ca1_mad1_musicapp.activities
+package ie.setu.ca2_mad1_musicapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
 import com.google.android.material.snackbar.Snackbar
-import ie.setu.ca1_mad1_musicapp.R
-import ie.setu.ca1_mad1_musicapp.databinding.ActivityPlacemarkBinding
-import ie.setu.ca1_mad1_musicapp.main.MainApp
-import ie.setu.ca1_mad1_musicapp.models.PlacemarkModel
-import timber.log.Timber
+import ie.setu.ca2_mad1_musicapp.R
+import ie.setu.ca2_mad1_musicapp.databinding.ActivityPlacemarkBinding
+import ie.setu.ca2_mad1_musicapp.main.MainApp
+import ie.setu.ca2_mad1_musicapp.models.PlacemarkModel
 import timber.log.Timber.i
 
 class PlacemarkActivity : AppCompatActivity() {

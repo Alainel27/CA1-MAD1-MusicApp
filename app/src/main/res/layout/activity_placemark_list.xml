@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ie.setu.ca1_mad1_musicapp.activities.PlacemarkListActivity">
+    tools:context="ca2_mad1_musicapp.activities.PlacemarkListActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout2"

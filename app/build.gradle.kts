@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "ie.setu.ca1_mad1_musicapp"
+    namespace = "ie.setu.ca2_mad1_musicapp"
     compileSdk {
         version = release(36)
     }
@@ -15,7 +15,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "ie.setu.ca1_mad1_musicapp"
+        applicationId = "ie.setu.ca2_mad1_musicapp"
         minSdk = 30
         targetSdk = 36
         versionCode = 1

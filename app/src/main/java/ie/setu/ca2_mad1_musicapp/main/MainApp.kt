@@ -1,10 +1,10 @@
-package ie.setu.ca1_mad1_musicapp.main
+package ie.setu.ca2_mad1_musicapp.main
 
 
 import android.app.Application
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import ie.setu.ca1_mad1_musicapp.models.PlacemarkModel
+import ie.setu.ca2_mad1_musicapp.models.PlacemarkModel
 import timber.log.Timber
 import timber.log.Timber.i
 import java.io.File
@@ -27,7 +27,7 @@ class MainApp : Application() {
     //The json gets stored in the device apps storage
     //How to access to
     //Go to View -> Tools windows -> Device Explorer -> Chose the emulator
-    //In the Files navigate to data -> data -> ie.setu.ca1_mad1_musicapp -> files -> placemarks.json
+    //In the Files navigate to data -> data -> ie.setu.ca2_mad1_musicapp -> files -> placemarks.json
 
     //Declares the function kotlin function as savePlacemarks()
     fun savePlacemarks() {

@@ -1,4 +1,4 @@
-package ie.setu.ca1_mad1_musicapp
+package ie.setu.ca2_mad1_musicapp
 
 import org.junit.Test
 

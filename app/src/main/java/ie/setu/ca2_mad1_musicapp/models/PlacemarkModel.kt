@@ -1,4 +1,4 @@
-package ie.setu.ca1_mad1_musicapp.models
+package ie.setu.ca2_mad1_musicapp.models
 
 
 data class PlacemarkModel(

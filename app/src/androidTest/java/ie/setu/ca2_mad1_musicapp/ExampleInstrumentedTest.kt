@@ -1,4 +1,4 @@
-package ie.setu.ca1_mad1_musicapp
+package ie.setu.ca2_mad1_musicapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("ie.setu.ca1_mad1_musicapp", appContext.packageName)
+        assertEquals("ie.setu.ca2_mad1_musicapp", appContext.packageName)
     }
 }
