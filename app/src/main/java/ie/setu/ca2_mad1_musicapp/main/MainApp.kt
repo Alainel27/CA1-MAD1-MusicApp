@@ -4,13 +4,14 @@ package ie.setu.ca2_mad1_musicapp.main
 import android.app.Application
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import ie.setu.ca2_mad1_musicapp.models.PlacemarkMemStore
 import ie.setu.ca2_mad1_musicapp.models.PlacemarkModel
 import timber.log.Timber
 import timber.log.Timber.i
 import java.io.File
 
 class MainApp : Application() {
-    val placemarks = ArrayList<PlacemarkModel>()
+    val placemarks = PlacemarkMemStore()
 
 
     override fun onCreate() {

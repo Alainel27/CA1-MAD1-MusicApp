@@ -17,7 +17,7 @@ import ie.setu.ca2_mad1_musicapp.databinding.ActivityPlacemarkListBinding
 import ie.setu.ca2_mad1_musicapp.databinding.CardPlacemarkBinding
 import ie.setu.ca2_mad1_musicapp.main.MainApp
 import ie.setu.ca2_mad1_musicapp.models.PlacemarkModel
-class PlacemarkListActivity : AppCompatActivity() {
+class PlacemarkListActivity : AppCompatActivity(), PlacemarkAdapter.PlacemarkListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityPlacemarkListBinding
@@ -28,7 +28,7 @@ class PlacemarkListActivity : AppCompatActivity() {
         ) {
             if (it.resultCode == Activity.RESULT_OK) {
                 (binding.recyclerView.adapter)?.
-                notifyItemRangeChanged(0,app.placemarks.size)
+                notifyItemRangeChanged(0,app.placemarks.findAll().size)
             }
         }
 
@@ -43,7 +43,7 @@ class PlacemarkListActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = PlacemarkAdapter.PlacemarkAdapter(app.placemarks)
+        binding.recyclerView.adapter = PlacemarkAdapter.PlacemarkAdapter(ArrayList(app.placemarks.findAll()),this)
 
     }
 
@@ -61,4 +61,24 @@ class PlacemarkListActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    override fun onPlacemarkClick(placemark: PlacemarkModel) {
+        val launcherIntent = Intent(this, PlacemarkActivity::class.java)
+        launcherIntent.putExtra("placemark_edit", placemark)
+        getClickResult.launch(launcherIntent)
+    }
+
+
+    private val getClickResult =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            if (it.resultCode == RESULT_OK) {
+                (binding.recyclerView.adapter)?.
+                notifyItemRangeChanged(0,app.placemarks.findAll().size)
+            }
+        }
+
+
+
 }

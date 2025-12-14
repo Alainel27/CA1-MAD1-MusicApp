@@ -8,7 +8,13 @@ import ie.setu.ca2_mad1_musicapp.main.MainApp
 import ie.setu.ca2_mad1_musicapp.models.PlacemarkModel
 
 class PlacemarkAdapter {
-    class PlacemarkAdapter constructor(private var placemarks: MutableList<PlacemarkModel> ) :
+
+    interface PlacemarkListener {
+        fun onPlacemarkClick(placemark: PlacemarkModel)
+    }
+
+    class PlacemarkAdapter constructor(private var placemarks: MutableList<PlacemarkModel>,
+                                       private val listener: PlacemarkListener) :
         RecyclerView.Adapter<PlacemarkAdapter.MainHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -20,7 +26,8 @@ class PlacemarkAdapter {
 
         override fun onBindViewHolder(holder: MainHolder, position: Int) {
             //Before this code below would not work with the delete function code, I used AI to help me create code that would function correctly.
-            holder.bind(placemarks[position], placemarks, this)
+           val placemark = placemarks[holder.adapterPosition]
+            holder.bind(placemark,placemarks,this, listener)
         }
 
         override fun getItemCount(): Int = placemarks.size
@@ -29,9 +36,10 @@ class PlacemarkAdapter {
         class MainHolder(
             private val binding : CardPlacemarkBinding) :
             RecyclerView.ViewHolder(binding.root) {
-            fun bind(placemark: PlacemarkModel, placemarks: MutableList<PlacemarkModel>, adapter: PlacemarkAdapter) {
+            fun bind(placemark: PlacemarkModel, placemarks: MutableList<PlacemarkModel>, adapter: PlacemarkAdapter, listener : PlacemarkListener) {
                 binding.placemarkTitle.text = placemark.title
                 binding.description.text = placemark.description
+                binding.root.setOnClickListener { listener.onPlacemarkClick(placemark) }
 
                 // I used AI to help understand and create this code below.
                 //For the this bit I used AI to help me create the delete functions that would work with the cardview button
@@ -61,4 +69,7 @@ class PlacemarkAdapter {
 
 
     }
+
+
+
 }

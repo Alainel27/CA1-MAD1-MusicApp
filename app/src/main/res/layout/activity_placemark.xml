@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ca2_mad1_musicapp.activities.PlacemarkActivity">
+    tools:context="ie.setu.ca2_mad1_musicapp.activities.PlacemarkActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

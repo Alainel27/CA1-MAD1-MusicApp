@@ -30,6 +30,11 @@ class PlacemarkActivity : AppCompatActivity() {
 
         app = application as MainApp
 
+        if (intent.hasExtra("placemark_edit")) {
+            placemark = intent.extras?.getParcelable("placemark_edit")!!
+            binding.placemarkTitle.setText(placemark.title)
+            binding.description.setText(placemark.description)
+        }
 
         i("Placemark Activity started...")
 
@@ -37,14 +42,16 @@ class PlacemarkActivity : AppCompatActivity() {
             placemark.title = binding.placemarkTitle.text.toString()
             placemark.description = binding.description.text.toString()
             if (placemark.title.isNotEmpty()) {
-                app.placemarks.add(placemark.copy())
+                app.placemarks.create(placemark.copy())
 
                 //persistence so it saves the inputted data, called from the MainApp savePlacemarks() function previously created
                 app.savePlacemarks()
 
                 i("add Button Pressed: ${placemark}")
-                for (i in app.placemarks.indices) {
-                    i("Placemark[$i]:${this.app.placemarks[i]}")
+                val list = app.placemarks.findAll()
+
+                for (i in list.indices) {
+                    i("Placemark[$i]:${list[i]}")
                 }
                 setResult(RESULT_OK)
                 finish()
